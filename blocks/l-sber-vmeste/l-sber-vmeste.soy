@@ -1,0 +1,22 @@
+{namespace sv.lSberVmeste.Template}
+
+/**
+* Main template
+*/
+{template .sberVmeste autoescape="strict" kind="html"}
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<body>
+		{call cl.iFactory.FactoryManager.INSTANCE.renderTemplate}
+		    {param params: [
+		        'factory': 'sber',
+		        'type': 'InnerTemplate'
+		    ]/}
+		{/call}
+	</body>
+	</html>
+{/template}
