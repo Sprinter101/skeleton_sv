@@ -9,6 +9,8 @@ goog.require('sv.lSberVmeste.SberVmeste');
 goog.require('sv.lSberVmeste.View');
 goog.require('goog.dom');
 
+
+
 /**
  * Main app class
  * @constructor
