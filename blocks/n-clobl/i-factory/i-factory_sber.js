@@ -1,11 +1,10 @@
 goog.provide('sv.iFactory.FactorySber');
 
-
 goog.require('sv.iFactory.TemplateFactory');
 goog.require('sv.lSberVmeste.SberVmeste');
 goog.require('sv.lSberVmeste.View');
-// goog.require('aa.lActiveAge.bAaCardInput.CardInput');
-// goog.require('aa.lActiveAge.bAaCardInput.View');
+goog.require('sv.lSberVmeste.bHeaderManager.HeaderManager');
+goog.require('sv.lSberVmeste.bHeaderManager.View');
 goog.require('cl.iFactory.Factory');
 
 /**
@@ -22,10 +21,14 @@ sv.iFactory.FactorySber = function() {
             control: sv.lSberVmeste.SberVmeste,
             view: sv.lSberVmeste.View
         })
-        // .setControlListItem('CardInput', {
-        //     control: aa.lActiveAge.bAaCardInput.CardInput,
-        //     view: aa.lActiveAge.bAaCardInput.View
-        // })
+        .setControlListItem('HeaderManager', {
+            control: sv.lSberVmeste.bHeaderManager.HeaderManager,
+            view: sv.lSberVmeste.bHeaderManager.View
+        })
+        .setControlListItem('Header', {
+            control: sv.lSberVmeste.bHeader.Header,
+            view: sv.lSberVmeste.bHeader.View
+        })
 };
 goog.inherits(sv.iFactory.FactorySber, cl.iFactory.Factory);
 goog.addSingletonGetter(sv.iFactory.FactorySber);
