@@ -1,5 +1,6 @@
 goog.provide('sv.lSberVmeste.View');
 
+goog.require('sv.lSberVmeste.bHeaderManager.View');
 goog.require('cl.iControl.View');
 
 
@@ -23,6 +24,10 @@ goog.scope(function() {
      */
     View.prototype.decorateInternal = function(element) {
         goog.base(this, 'decorateInternal', element);
+
+        this.dom.headerManager = this.getElementByClass(
+            HeaderManagerView.CssClass.ROOT
+        );
     };
 
     /**

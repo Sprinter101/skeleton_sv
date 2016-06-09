@@ -19,12 +19,20 @@
  * }}
  */
 {template .content autoescape="strict" kind="html"}
+	{let $data: [
+	    'apiUrl': $params?.data?.apiUrl
+	] /}
+
 	<div class="{call .rootClass/}">
 		{call cl.iFactory.FactoryManager.INSTANCE.renderTemplate}
 			{param params: [
 				'factory': 'sber',
-				'type': 'InnerTemplate',
-				'fuckOffSoy': $params
+				'type': 'HeaderManager',
+				'renderParams': [
+					'config': [
+						'state': 'default'
+					]
+				]
 			]/}
 		{/call}
 	</div>

@@ -1,0 +1,60 @@
+{namespace sv.lSberVmeste.bHeader.Template}
+
+/**
+ * @constructor
+ * @extends cl.iControl.Template
+ */
+{template .header}
+    {call .init data="all"/}
+{/template}
+
+/**
+ * @override
+ */
+{template .body}
+<div class="{call .rootClass/}__wrapper">
+	<ul class="{call .rootClass/}__tabs">
+		{call .tab}
+			{param params: [
+				'tabs': [
+					'Вкладка 1',
+					'Вкладка 2',
+					'Вкладка 3'
+				]
+			]/}
+		{/call}
+	</ul>
+</div>
+{/template}
+
+/**
+ * Tab template
+ * @param params {{
+ *     tabs: list
+ * }}
+ */
+{template .tab}
+	{foreach $item in $params.tabs}
+		<li class="{call .rootClass/}__tab">{$item}</li>
+	{/foreach}
+{/template}
+
+/**
+ * @override
+ */
+{template .rootClass}
+    b-header
+{/template}
+
+/**
+ * @param params {
+ *     config: {
+ *         isHidden: ?bool
+ *     }
+ * }
+ */
+{template .additionalClasses}
+    {if $params?.config?.isHidden}
+        i-utils__hidden{sp}
+    {/if}
+{/template}

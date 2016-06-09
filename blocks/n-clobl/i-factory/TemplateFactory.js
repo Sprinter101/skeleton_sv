@@ -2,7 +2,7 @@ goog.provide('sv.iFactory.TemplateFactory');
 goog.provide('sv.iFactory.TemplateFactory.INSTANCE');
 
 goog.require('sv.lSberVmeste.Template');
-goog.require('sv.lSberVmeste.bInnerTemplate.Template')
+goog.require('sv.lSberVmeste.bHeaderManager.Template')
 goog.require('cl.iFactory.TemplateFactory');
 
 /**
@@ -18,8 +18,12 @@ sv.iFactory.TemplateFactory = function() {
             sv.lSberVmeste.Template.sberVmeste
         )
         .setTemplateListItem(
-            'InnerTemplate',
-            sv.lSberVmeste.bInnerTemplate.Template.inner
+            'HeaderManager',
+            sv.lSberVmeste.bHeaderManager.Template.headerManager
+        )
+        .setTemplateListItem(
+            'Header',
+            sv.lSberVmeste.bHeader.Template.header
         )
 };
 goog.inherits(sv.iFactory.TemplateFactory, cl.iFactory.TemplateFactory);
