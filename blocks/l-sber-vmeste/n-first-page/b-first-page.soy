@@ -1,0 +1,34 @@
+{namespace sv.lSberVmeste.bFirstPage.Template}
+
+/**
+ * @constructor
+ * @extends sv.lSberVmeste.iPage.Template
+ */
+{template .page}
+    {call .init data="all"/}
+{/template}
+
+/**
+ * @override
+ */
+{template .content}
+            {call .renderChild}
+                {param params: [
+                    'type': 'button',
+                    'renderParams': [
+                        'data': [
+                            'content': 'Go to "Second" page'
+                        ],
+                        'config': [
+                            'customClasses': ['b-first-page__second-button']
+                        ]
+                    ]
+                ]/}
+            {/call}
+{/template}
+/**
+ * @override
+ */
+{template .rootClass}
+    b-first-page
+{/template}

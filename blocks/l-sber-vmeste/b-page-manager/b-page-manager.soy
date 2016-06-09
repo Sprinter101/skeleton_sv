@@ -1,0 +1,38 @@
+{namespace sv.lSberVmeste.bPageManager.Template}
+
+/**
+ * @constructor
+ * @extends cl.iContentManager.Template
+ */
+{template .pageManager autoescape="strict" kind="html"}
+    {call .init data="all"/}
+{/template}
+
+/**
+ * @override
+ * @param params {
+ *     config: {
+ *         state: ?string
+ *     }
+ * }
+ */
+{template .body}
+    {call .initChildWithState}
+        {param params: [
+            'states': [
+                [
+                    'type': 'first',
+                ]
+            ],
+            'defaultControl': 'FirstPage',
+            'currentState': $params?.config?.state ?: 'first'
+        ]/}
+    {/call}
+{/template}
+
+/**
+ * @override
+ */
+{template .rootClass}
+    b-page-manager
+{/template}

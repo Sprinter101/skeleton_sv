@@ -44,7 +44,7 @@ gulp.task('soy', function () {
     return gulpHelper.soy.build([]);
 });
 
-gulp.task('scripts', ['soy', 'lint'], function () {
+gulp.task('scripts', ['soy'], function () {
     return gulpHelper.js.build({
         outputFiles: [
             {
@@ -56,20 +56,6 @@ gulp.task('scripts', ['soy', 'lint'], function () {
     });
 });
 
-// gulp.task('fonts', function () {
-//     return gulp.src(path.join(__dirname + '/blocks/l-active-age/assets/fonts/**/*.*'))
-//         .pipe(gulp.dest(path.join(__dirname + '/public/fonts')));
-// });
-
-gulp.task('images', function () {
-    return gulp.src([
-        path.join(__dirname + '/blocks/l-sber-vmeste/assets/images/**/*.png'),
-        path.join(__dirname + '/blocks/l-sber-vmeste/assets/images/**/*.ico'),
-        path.join(__dirname + '/blocks/l-sber-vmeste/assets/images/**/*.gif'),
-        path.join(__dirname + '/blocks/l-sber-vmeste/assets/images/**/*.jpg')
-    ])
-    .pipe(gulp.dest(path.join(__dirname + '/public/images')));
-});
 
 gulp.task('styles', function () {
     return gulpHelper.css.build({
@@ -105,7 +91,7 @@ gulp.task('watch', function () {
 
 const tasks = function (bool) {
     return bool ?
-        ['soy', 'scripts', 'styles',/*'fonts',*/'images', 'html'] :
+        ['soy', 'scripts', 'styles', 'html'] :
         ['watch', 'soy', 'scripts', 'styles', 'html'];
 };
 
@@ -113,8 +99,6 @@ gulp.task('default', tasks(production));
 
 gulp.task('build', [
     'html',
-    'images',
-    'fonts',
     'styles',
     'soy',
     'scripts'
