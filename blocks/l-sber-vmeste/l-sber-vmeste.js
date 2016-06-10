@@ -33,6 +33,11 @@ goog.scope(function() {
 			this.getView().getDom().headerManager
 		);
 
+		this.pageManager_ = this.decorateChild(
+			'PageManager',
+			this.getView().getDom().pageManager
+		);
+
 		this.router_ = Router.getInstance();
 
 		this.controller_ = new Controller({

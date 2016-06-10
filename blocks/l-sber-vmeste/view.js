@@ -1,6 +1,7 @@
 goog.provide('sv.lSberVmeste.View');
 
 goog.require('sv.lSberVmeste.bHeaderManager.View');
+goog.require('sv.lSberVmeste.bPageManager.View');
 goog.require('cl.iControl.View');
 
 
@@ -14,6 +15,7 @@ goog.inherits(sv.lSberVmeste.View, cl.iControl.View);
 goog.scope(function() {
 	var View = sv.lSberVmeste.View,
     HeaderManagerView = sv.lSberVmeste.bHeaderManager.View;
+    PageManagerView = sv.lSberVmeste.bPageManager.View;
 
 	View.CssClass = {
 		ROOT: 'l-sber-vmeste'
@@ -28,6 +30,10 @@ goog.scope(function() {
 
         this.dom.headerManager = this.getElementByClass(
             HeaderManagerView.CssClass.ROOT
+        );
+
+        this.dom.pageManager = this.getElementByClass(
+            PageManagerView.CssClass.ROOT
         );
     };
 

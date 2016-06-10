@@ -56,6 +56,17 @@ gulp.task('scripts', ['soy', 'lint'], function () {
     });
 });
 
+gulp.task('scr', function () {
+    return gulpHelper.js.build({
+        outputFiles: [
+            {
+                entryPoint: 'sv.lSberVmeste.Main',
+                fileName: 'scripts.js'
+            }
+        ]
+    });
+});
+
 // gulp.task('fonts', function () {
 //     return gulp.src(path.join(__dirname + '/blocks/l-active-age/assets/fonts/**/*.*'))
 //         .pipe(gulp.dest(path.join(__dirname + '/public/fonts')));
