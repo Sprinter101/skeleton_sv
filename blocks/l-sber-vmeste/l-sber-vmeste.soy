@@ -35,6 +35,18 @@
 				]
 			]/}
 		{/call}
+		{call cl.iFactory.FactoryManager.INSTANCE.renderTemplate}
+			{param params: [
+			    'factory': 'sber',
+			    'type': 'PageManager',
+			    'renderParams': [
+			        'data': $params?.data,
+			        'config': [
+			            'state': 'navPage3'
+			        ]
+			    ]
+			]/}
+		{/call}
 	</div>
 {/template}
 

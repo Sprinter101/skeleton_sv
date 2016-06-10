@@ -25,7 +25,7 @@ sv.lSberVmeste.bHeader.View = function(opt_params, opt_template, opt_modifier) {
      * @type {number}
      * @private
      */
-    this.activeNavLink_ = 1;
+    this.activeNavLink_ = 2;
 
     /**
      * Maps all available header menu items to their respective links and icons

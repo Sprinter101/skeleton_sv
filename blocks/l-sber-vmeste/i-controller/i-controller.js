@@ -27,7 +27,7 @@ goog.scope(function() {
     Controller.prototype.actionNavLink1 = function() {
         this.headerManager_.setCurrentHeader('Header');
         this.headerManager_.show();
-        //this.pageManager_.setCurrentPage('LoginPage');
+        this.pageManager_.setCurrentPage('NavPage1');
     };
 
     /**
@@ -36,7 +36,7 @@ goog.scope(function() {
     Controller.prototype.actionNavLink2 = function() {
         this.headerManager_.setCurrentHeader('Header');
         this.headerManager_.show();
-        //this.pageManager_.setCurrentPage('TestPage');
+        this.pageManager_.setCurrentPage('NavPage2');
     };
 
     /**
@@ -44,10 +44,8 @@ goog.scope(function() {
      */
     Controller.prototype.actionNavLink3 = function() {
         this.headerManager_.setCurrentHeader('Header');
-        this.headerManager_.setTitle('Вход');
         this.headerManager_.show();
-        //this.pageManager_.setCurrentPage('EnterPage');
-
+        this.pageManager_.setCurrentPage('NavPage3');
     };
 
 });  // goog.scope

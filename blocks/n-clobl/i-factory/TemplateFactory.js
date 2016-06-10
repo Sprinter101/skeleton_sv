@@ -4,6 +4,10 @@ goog.provide('sv.iFactory.TemplateFactory.INSTANCE');
 goog.require('sv.lSberVmeste.Template');
 goog.require('sv.lSberVmeste.bHeaderManager.Template')
 goog.require('sv.lSberVmeste.bHeader.Template')
+goog.require('sv.lSberVmeste.bPageManager.Template');
+goog.require('sv.lSberVmeste.bNavPage1.Template');
+goog.require('sv.lSberVmeste.bNavPage2.Template');
+goog.require('sv.lSberVmeste.bNavPage3.Template');
 goog.require('cl.iFactory.TemplateFactory');
 
 /**
@@ -25,6 +29,22 @@ sv.iFactory.TemplateFactory = function() {
         .setTemplateListItem(
             'Header',
             sv.lSberVmeste.bHeader.Template.header
+        )
+        .setTemplateListItem(
+            'PageManager',
+            sv.lSberVmeste.bPageManager.Template.pageManager
+        )
+        .setTemplateListItem(
+            'NavPage1',
+            sv.lSberVmeste.bNavPage1.Template.page
+        )
+        .setTemplateListItem(
+            'NavPage2',
+            sv.lSberVmeste.bNavPage2.Template.page
+        )
+        .setTemplateListItem(
+            'NavPage3',
+            sv.lSberVmeste.bNavPage3.Template.page
         )
 };
 goog.inherits(sv.iFactory.TemplateFactory, cl.iFactory.TemplateFactory);

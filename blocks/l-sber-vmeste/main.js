@@ -1,11 +1,7 @@
-//goog.provide('aa.lActiveAge.Main');
 goog.provide('sv.lSberVmeste.Main');
 
-//goog.require('aa.iFactory.FactoryAge');
 goog.require('sv.iFactory.FactorySber');
-//goog.require('aa.lActiveAge.ActiveAge');
 goog.require('sv.lSberVmeste.SberVmeste');
-//goog.require('aa.lActiveAge.View');
 goog.require('sv.lSberVmeste.View');
 goog.require('goog.dom');
 
