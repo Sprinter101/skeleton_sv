@@ -2,6 +2,7 @@ goog.provide('sv.lSberVmeste.SberVmeste');
 
 goog.require('sv.lSberVmeste.iRouter.Route');
 goog.require('sv.lSberVmeste.iRouter.Router');
+goog.require('sv.lSberVmeste.iRequest.Request');
 goog.require('sv.lSberVmeste.iController.Controller');
 goog.require('cl.iControl.Control');
 
@@ -21,12 +22,18 @@ goog.inherits(sv.lSberVmeste.SberVmeste, cl.iControl.Control);
 
 goog.scope(function() {
 	var SberVmeste = sv.lSberVmeste.SberVmeste,
-        Route = sv.lSberVmeste.iRouter.Route,
-        Router = sv.lSberVmeste.iRouter.Router,
-        Controller = sv.lSberVmeste.iController.Controller;
+		Request = sv.lSberVmeste.iRequest.Request,
+		Route = sv.lSberVmeste.iRouter.Route,
+		Router = sv.lSberVmeste.iRouter.Router,
+		Controller = sv.lSberVmeste.iController.Controller;
 
 	SberVmeste.prototype.decorateInternal = function(element) {
 		goog.base(this, 'decorateInternal', element);
+
+		this.request_ = Request.getInstance();
+		this.request_.init({
+			baseUrl: "http://localhost:3000"
+		});
 
 		this.headerManager_ = this.decorateChild(
 			'HeaderManager',
@@ -41,26 +48,27 @@ goog.scope(function() {
 		this.router_ = Router.getInstance();
 
 		this.controller_ = new Controller({
-		    headerManager: this.headerManager_,
-		    pageManager: this.pageManager_
+			headerManager: this.headerManager_,
+			pageManager: this.pageManager_
 		});
+
 	}
 
 	SberVmeste.prototype.enterDocument = function() {
 		this.initRouting_();
 	};
 
-    SberVmeste.prototype.initRouting_ = function() {
-        var controller = this.controller_;
+	SberVmeste.prototype.initRouting_ = function() {
+		var controller = this.controller_;
 
-        this.router_.enable();
-        this.initRoute_(Route.NAV_LINK_1, controller.actionNavLink1);
-        this.initRoute_(Route.NAV_LINK_2, controller.actionNavLink2);
-        this.initRoute_(Route.NAV_LINK_3, controller.actionNavLink3);
-    };
+		this.router_.enable();
+		this.initRoute_(Route.NAV_LINK_1, controller.actionNavLink1);
+		this.initRoute_(Route.NAV_LINK_2, controller.actionNavLink2);
+		this.initRoute_(Route.NAV_LINK_3, controller.actionNavLink3);
+	};
 
-    SberVmeste.prototype.initRoute_ = function(route, action) {
-        this.router_.use(route, action.bind(this));
-    }
+	SberVmeste.prototype.initRoute_ = function(route, action) {
+		this.router_.use(route, action.bind(this));
+	}
 
 });
