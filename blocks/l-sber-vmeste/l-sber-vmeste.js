@@ -2,6 +2,7 @@ goog.provide('sv.lSberVmeste.SberVmeste');
 
 goog.require('sv.lSberVmeste.iRouter.Route');
 goog.require('sv.lSberVmeste.iRouter.Router');
+goog.require('sv.lSberVmeste.iController.Controller');
 goog.require('cl.iControl.Control');
 
 /**
@@ -22,7 +23,7 @@ goog.scope(function() {
 	var SberVmeste = sv.lSberVmeste.SberVmeste,
         Route = sv.lSberVmeste.iRouter.Route,
         Router = sv.lSberVmeste.iRouter.Router,
-        Controller = sv.lSberVmeste.iController.Controller,;
+        Controller = sv.lSberVmeste.iController.Controller;
 
 	SberVmeste.prototype.decorateInternal = function(element) {
 		goog.base(this, 'decorateInternal', element);
@@ -44,16 +45,16 @@ goog.scope(function() {
 		this.initRouting_();
 	};
 
-    ActiveAge.prototype.initRouting_ = function() {
+    SberVmeste.prototype.initRouting_ = function() {
         var controller = this.controller_;
 
         this.router_.enable();
-        this.initRoute_(Route.TAB1, controller.actionTab1);
-        this.initRoute_(Route.TAB2, controller.actionTab2);
-        this.initRoute_(Route.TAB3, controller.actionTab3);
+        this.initRoute_(Route.NAV_LINK_1, controller.actionNavLink1);
+        this.initRoute_(Route.NAV_LINK_2, controller.actionNavLink2);
+        this.initRoute_(Route.NAV_LINK_3, controller.actionNavLink3);
     };
 
-    ActiveAge.prototype.initRoute_ = function(route, action) {
+    SberVmeste.prototype.initRoute_ = function(route, action) {
         this.router_.use(route, action.bind(this));
     }
 

@@ -16,7 +16,7 @@ UL {
 	text-align: center;
 }
 
-.b-header__tab {
+.b-header__nav-link {
 	display: inline-block;
 	padding: 10px;
 	font-size: 1.5rem;
@@ -31,6 +31,9 @@ UL {
 		border: 1px solid red;
 		border-radius: 0 10px 10px 0;
 	}
+	&--active {
+		background: orange;
+	}
 }
 
 @include media-s {
@@ -39,7 +42,7 @@ UL {
 		border-radius: 10px;
 	}
 
-	.b-header__tab {
+	.b-header__nav-link {
 		display: block;
 		border-radius: 0;
 		width: 100%;

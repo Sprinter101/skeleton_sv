@@ -3,6 +3,7 @@ goog.provide('sv.iFactory.TemplateFactory.INSTANCE');
 
 goog.require('sv.lSberVmeste.Template');
 goog.require('sv.lSberVmeste.bHeaderManager.Template')
+goog.require('sv.lSberVmeste.bHeader.Template')
 goog.require('cl.iFactory.TemplateFactory');
 
 /**

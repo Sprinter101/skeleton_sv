@@ -1,7 +1,6 @@
-// NOT FINISHED goog.provide('sv.lSberVmeste.bHeader.View');
+goog.provide('sv.lSberVmeste.bHeader.View');
 
-goog.require('aa.iMedia.Media');
-goog.require('aa.iUtils.Utils');
+goog.require('sv.iUtils.Utils');
 goog.require('cl.iControl.View');
 goog.require('goog.dom');
 goog.require('goog.events.EventType');
@@ -34,22 +33,13 @@ sv.lSberVmeste.bHeader.View = function(opt_params, opt_template, opt_modifier) {
      */
     this.navLinksMap_ = [
         {
-            title: 'new'
+            title: 'navLink1'
         },
         {
-            title: 'journal'
+            title: 'navLink2'
         },
         {
-            title: 'sale'
-        },
-        {
-            title: 'bonus'
-        },
-        {
-            title: 'school'
-        },
-        {
-            title: 'fav'
+            title: 'navLink3'
         }
     ];
 };
@@ -57,8 +47,7 @@ goog.inherits(sv.lSberVmeste.bHeader.View, cl.iControl.View);
 
 goog.scope(function() {
     var View = sv.lSberVmeste.bHeader.View,
-        Media = aa.iMedia.Media,
-        Utils = aa.iUtils.Utils;
+        Utils = sv.iUtils.Utils;
 
     /**
      * Css class enum
@@ -66,12 +55,8 @@ goog.scope(function() {
      */
     View.CssClass = {
         ROOT: 'b-header',
-        NAV_LINK: 'b-header__nav-menu-item',
-        NAV_LINK_ACTIVE: 'b-header__nav-menu-item_active',
-        NAV_LINK_ICON: 'b-header__nav-menu-item-icon',
-        NAV_LINK_ICON_ACTIVE: 'b-header__nav-menu-item-icon_active',
-        NAV_LINK_TEXT: 'b-header__nav-menu-item-text',
-        NAV_LINK_TEXT_ACTIVE: 'b-header__nav-menu-item-text_active'
+        NAV_LINK: 'b-header__nav-link',
+        NAV_LINK_ACTIVE: 'b-header__nav-link--active'
     };
 
     /**
@@ -80,7 +65,7 @@ goog.scope(function() {
      */
     View.Event = {
         CLICK: goog.events.EventType.CLICK,
-        TAB_CLICKED: 'tab-clicked'
+        NAV_LINK_CLICKED: 'nav_link-clicked'
     };
 
     /**
@@ -92,19 +77,6 @@ goog.scope(function() {
 
         this.dom.links = this.getElementsByClass(View.CssClass.NAV_LINK);
 
-        this.dom.iconLinks = this.getElementsByClass(
-            View.CssClass.NAV_LINK_ICON
-        );
-
-        this.dom.activeIconLinks = this.getElementsByClass(
-            View.CssClass.NAV_LINK_ICON_ACTIVE
-        );
-
-        this.dom.textLinks = this.getElementsByClass(
-            View.CssClass.NAV_LINK_TEXT
-        );
-
-        this.populateNavLinksMap_();
         this.makeLinkActive(this.activeNavLink_);
     };
 
@@ -167,22 +139,6 @@ goog.scope(function() {
     };
 
     /**
-     * Links nav menu items to dom elements
-     * @private
-     */
-    View.prototype.populateNavLinksMap_ = function() {
-        Array.prototype.forEach.call(
-            ['iconLinks', 'activeIconLinks', 'textLinks'],
-            function(linkType) {
-                linkTypeSingular = linkType.slice(0, linkType.length - 1);
-                Array.prototype.forEach.call(this.dom[linkType],
-                    function(link, index) {
-                        this.navLinksMap_[index][linkTypeSingular] = link;
-                }.bind(this));
-        }.bind(this));
-    };
-
-    /**
      * Highlights currently active link
      * @param {number} id
      */
@@ -190,34 +146,17 @@ goog.scope(function() {
         if (this.activeNavLink_ != undefined) {
             var current = this.activeNavLink_;
 
-
-            Utils.hide(this.navLinksMap_[current].activeIconLink);
-            Utils.show(this.navLinksMap_[current].iconLink);
-
             goog.dom.classlist.remove(
                 this.dom.links[current],
                 View.CssClass.NAV_LINK_ACTIVE
-            );
-
-            goog.dom.classlist.remove(
-                this.navLinksMap_[current].textLink,
-                View.CssClass.NAV_LINK_TEXT_ACTIVE
             );
         }
 
         this.activeNavLink_ = id;
 
-        Utils.show(this.navLinksMap_[id].activeIconLink);
-        Utils.hide(this.navLinksMap_[id].iconLink);
-
         goog.dom.classlist.add(
             this.dom.links[id],
             View.CssClass.NAV_LINK_ACTIVE
-        );
-
-        goog.dom.classlist.add(
-            this.navLinksMap_[id].textLink,
-            View.CssClass.NAV_LINK_TEXT_ACTIVE
         );
     };
 

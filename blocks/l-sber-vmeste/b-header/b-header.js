@@ -1,4 +1,4 @@
-//NOT FINISHED goog.provide('sv.lSberVmeste.bHeader.Header');
+goog.provide('sv.lSberVmeste.bHeader.Header');
 
 goog.require('sv.lSberVmeste.bHeader.View');
 goog.require('sv.lSberVmeste.iRouter.Route');
@@ -43,7 +43,9 @@ goog.scope(function() {
      * @enum {number}
      */
     Header.NavLinkID = {
-
+        'navLink1': 1,
+        'navLink2': 2,
+        'navLink3': 3
     };
 
     /**
@@ -62,8 +64,8 @@ goog.scope(function() {
         goog.base(this, 'enterDocument');
 
         this.viewListen(
-            View.Event.TAB_CLICKED,
-            this.onTabSelect
+            View.Event.NAV_LINK_CLICKED,
+            this.onNavLinkSelect
         );
     };
 
@@ -71,24 +73,19 @@ goog.scope(function() {
      * Handles navigation link selection
      * @param {goog.events.Event} event
      */
-    Header.prototype.onTabSelect = function(event) {
+    Header.prototype.onNavLinkSelect = function(event) {
         switch (this.getView().getNavLinkTitle([event.value.id])) {
-            case 'sale':
-                Router.getInstance().changeLocation(
-                    Route.DISCOUNT
-                );
+            case 'navLink1':
+                Router.getInstance().changeLocation(Route.NAV_LINK_1);
                 break;
-            case 'bonus':
-                Router.getInstance().changeLocation(
-                    Route.REWARD,
-                    {
-                        listType: 'gain'
-                    }
-                );
+            case 'navLink2':
+                Router.getInstance().changeLocation(Route.NAV_LINK_2);
+                break;
+            case 'navLink3':
+                Router.getInstance().changeLocation(Route.NAV_LINK_3);
                 break;
             default:
-                console.log(this.getView().getNavLinkTitle([event.value.id]) +
-                    ' clicked!');
+                console.log('Nav Link ' + event.value.id + ' clicked!');
         }
     };
 

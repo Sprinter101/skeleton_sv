@@ -13,10 +13,10 @@
  */
 {template .body}
 <div class="{call .rootClass/}__wrapper">
-	<ul class="{call .rootClass/}__tabs">
+	<ul class="{call .rootClass/}__nav-links">
 		{call .tab}
 			{param params: [
-				'tabs': [
+				'navLinks': [
 					'Вкладка 1',
 					'Вкладка 2',
 					'Вкладка 3'
@@ -30,12 +30,12 @@
 /**
  * Tab template
  * @param params {{
- *     tabs: list
+ *     navLinks: list
  * }}
  */
 {template .tab}
-	{foreach $item in $params.tabs}
-		<li class="{call .rootClass/}__tab">{$item}</li>
+	{foreach $item in $params.navLinks}
+		<li class="{call .rootClass/}__nav-link">{$item}</li>
 	{/foreach}
 {/template}
 

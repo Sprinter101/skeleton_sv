@@ -12,7 +12,8 @@ sv.lSberVmeste.View = function(opt_params, opt_template, opt_modifier) {
 goog.inherits(sv.lSberVmeste.View, cl.iControl.View);
 
 goog.scope(function() {
-	var View = sv.lSberVmeste.View;
+	var View = sv.lSberVmeste.View,
+    HeaderManagerView = sv.lSberVmeste.bHeaderManager.View;
 
 	View.CssClass = {
 		ROOT: 'l-sber-vmeste'
