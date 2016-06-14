@@ -5,6 +5,8 @@ var router = express.Router();
 
 var app = express();
 
+const PORT = 3000
+
 app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header(
@@ -19,10 +21,14 @@ app.get('/test', function(req, res) {
 	response = 'Этот текст был загружен с сервера';
 
     res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
-    res.write(response);
-    res.end();
+    setTimeout(function() {
+        res.write(response);
+        res.end();
+    }, 500);
+    
 });
 
 
-app.listen(3000);
-console.log('Server running at http://127.0.0.1:3000/');
+app.listen(PORT, () => {
+    console.log(`Server running at localhost:${PORT}`);
+});

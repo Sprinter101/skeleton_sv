@@ -18,7 +18,7 @@ goog.scope(function() {
      */
     View.CssClass = {
         ROOT: 'b-page-3',
-        AJAX_CONT: 'b-page-3__ajax_cont'
+        AJAX_CONT: 'b-page-3__ajax-cont'
     };
 
     /**

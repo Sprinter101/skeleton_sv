@@ -89,6 +89,18 @@ gulp.task('styles', function () {
 
 gulp.task('html', ['scripts'], function() {
     return quizGulpHelper.buildCordovaHtml({
+        template: 'sv.lSberVmeste.Template.sberVmeste',        
+        templateParams: {
+            data: {
+                apiUrl: apiAddress
+            }
+        },
+        dest: path.join(__dirname, './public')
+    });
+});
+
+gulp.task('html2', function() {
+    return quizGulpHelper.buildCordovaHtml({
         template: 'sv.lSberVmeste.Template.sberVmeste',
         templateParams: {
             data: {
