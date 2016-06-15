@@ -2,6 +2,14 @@ goog.provide('sv.lSberVmeste.bNavPage3.View');
 
 goog.require('cl.iControl.View');
 
+/**
+ * sv.lSberVmeste.bNavPage3.View
+ * @param {Object=} opt_params
+ * @param {Function=} opt_template
+ * @param {string=} opt_modifier
+ * @constructor
+ * @extends {cl.iControl.View}
+*/
 sv.lSberVmeste.bNavPage3.View = function(opt_params, opt_template, opt_modifier) {    
     goog.base(this, opt_params, opt_template, opt_modifier);
 
@@ -28,6 +36,6 @@ goog.scope(function() {
     View.prototype.decorateInternal = function(element) {
         goog.base(this, 'decorateInternal', element);
 
-        this.dom.ajaxCont = this.getElementByClass(View.CssClass.AJAX_CONT)
+        this.dom.ajaxCont_ = this.getElementByClass(View.CssClass.AJAX_CONT)
     };
 });  // goog.scope

@@ -2,6 +2,14 @@ goog.provide('sv.lSberVmeste.bNavPage2.View');
 
 goog.require('cl.iControl.View');
 
+/**
+ * sv.lSberVmeste.bNavPage2.View
+ * @param {Object=} opt_params
+ * @param {Function=} opt_template
+ * @param {string=} opt_modifier
+ * @constructor
+ * @extends {cl.iControl.View}
+*/
 sv.lSberVmeste.bNavPage2.View = function(opt_params, opt_template, opt_modifier) {
     goog.base(this, opt_params, opt_template, opt_modifier);
 

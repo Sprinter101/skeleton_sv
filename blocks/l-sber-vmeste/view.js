@@ -4,7 +4,14 @@ goog.require('sv.lSberVmeste.bHeaderManager.View');
 goog.require('sv.lSberVmeste.bPageManager.View');
 goog.require('cl.iControl.View');
 
-
+/**
+ * sv.lSberVmeste.View
+ * @param {Object=} opt_params
+ * @param {Function=} opt_template
+ * @param {string=} opt_modifier
+ * @constructor
+ * @extends {cl.iControl.View}
+*/
 sv.lSberVmeste.View = function(opt_params, opt_template, opt_modifier) {
 	goog.base(this, opt_params, opt_template, opt_modifier);
 
@@ -17,6 +24,10 @@ goog.scope(function() {
     HeaderManagerView = sv.lSberVmeste.bHeaderManager.View;
     PageManagerView = sv.lSberVmeste.bPageManager.View;
 
+    /**
+     * Css class enum
+     * @enum {string}
+    */
 	View.CssClass = {
 		ROOT: 'l-sber-vmeste'
 	};

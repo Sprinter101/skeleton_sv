@@ -54,10 +54,19 @@ goog.scope(function() {
 
 	}
 
+	/**
+	* @override
+	*/
 	SberVmeste.prototype.enterDocument = function() {
+		goog.base(this, 'enterDocument');
+
 		this.initRouting_();
 	};
 
+	/**
+     * Init app routing (attaching handlers to routs)
+     * @private
+    */
 	SberVmeste.prototype.initRouting_ = function() {
 		var controller = this.controller_;
 
@@ -67,6 +76,12 @@ goog.scope(function() {
 		this.initRoute_(Route.NAV_LINK_3, controller.actionNavLink3);
 	};
 
+	/**
+	 * Attach handler to url
+	 * @param {String} route
+	 * @param {Function} action
+	 * @private
+	*/
 	SberVmeste.prototype.initRoute_ = function(route, action) {
 		this.router_.use(route, action.bind(this));
 	}
