@@ -24,7 +24,6 @@ const quizGulpHelper =
             modulesPath: path.resolve(__dirname, modulesPath)
         });
 
-//const config = require('./config/config.json');
 const apiAddress = args.apiAddress || require('./config/config.json').api.url;
 const gulpConfig = require('./gulp/config.json');
 
@@ -56,21 +55,10 @@ gulp.task('scripts', ['soy', 'lint'], function () {
     });
 });
 
-gulp.task('scr', function () {
-    return gulpHelper.js.build({
-        outputFiles: [
-            {
-                entryPoint: 'sv.lSberVmeste.Main',
-                fileName: 'scripts.js'
-            }
-        ]
-    });
+gulp.task('fonts', function () {
+    return gulp.src(path.join(__dirname + '/blocks/l-active-age/assets/fonts/**/*.*'))
+        .pipe(gulp.dest(path.join(__dirname + '/public/fonts')));
 });
-
-// gulp.task('fonts', function () {
-//     return gulp.src(path.join(__dirname + '/blocks/l-active-age/assets/fonts/**/*.*'))
-//         .pipe(gulp.dest(path.join(__dirname + '/public/fonts')));
-// });
 
 gulp.task('images', function () {
     return gulp.src([
@@ -88,18 +76,6 @@ gulp.task('styles', function () {
 });
 
 gulp.task('html', ['scripts'], function() {
-    return quizGulpHelper.buildCordovaHtml({
-        template: 'sv.lSberVmeste.Template.sberVmeste',        
-        templateParams: {
-            data: {
-                apiUrl: apiAddress
-            }
-        },
-        dest: path.join(__dirname, './public')
-    });
-});
-
-gulp.task('html2', function() {
     return quizGulpHelper.buildCordovaHtml({
         template: 'sv.lSberVmeste.Template.sberVmeste',
         templateParams: {
@@ -128,7 +104,7 @@ gulp.task('watch', function () {
 
 const tasks = function (bool) {
     return bool ?
-        ['soy', 'scripts', 'styles',/*'fonts',*/'images', 'html'] :
+        ['soy', 'scripts', 'styles','fonts','images', 'html'] :
         ['watch', 'soy', 'scripts', 'styles', 'html'];
 };
 
