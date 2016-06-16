@@ -30,22 +30,4 @@ goog.scope(function() {
         this.pageManager_.setCurrentPage('NavPage1');
     };
 
-    /**
-     * 'Nav link 2' action
-     */
-    Controller.prototype.actionNavLink2 = function() {
-        this.headerManager_.setCurrentHeader('Header');
-        this.headerManager_.show();
-        this.pageManager_.setCurrentPage('NavPage2');
-    };
-
-    /**
-     * 'Nav link 3' action
-     */
-    Controller.prototype.actionNavLink3 = function() {
-        this.headerManager_.setCurrentHeader('Header');
-        this.headerManager_.show();
-        this.pageManager_.setCurrentPage('NavPage3');
-    };
-
 });  // goog.scope

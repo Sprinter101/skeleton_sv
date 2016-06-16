@@ -25,7 +25,7 @@ sv.lSberVmeste.bHeader.View = function(opt_params, opt_template, opt_modifier) {
      * @type {number}
      * @private
      */
-    this.activeNavLink_ = 2;
+    this.activeNavLink_ = 0;
 
     /**
      * Maps all available header menu items to their respective links and icons
@@ -34,12 +34,6 @@ sv.lSberVmeste.bHeader.View = function(opt_params, opt_template, opt_modifier) {
     this.navLinksMap_ = [
         {
             title: 'navLink1'
-        },
-        {
-            title: 'navLink2'
-        },
-        {
-            title: 'navLink3'
         }
     ];
 };
@@ -56,7 +50,7 @@ goog.scope(function() {
     View.CssClass = {
         ROOT: 'b-header',
         NAV_LINK: 'b-header__nav-link',
-        NAV_LINK_ACTIVE: 'b-header__nav-link--active'
+        NAV_LINK_ACTIVE: 'b-header__nav-link_active'
     };
 
     /**

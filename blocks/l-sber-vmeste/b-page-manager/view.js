@@ -1,6 +1,6 @@
 goog.provide('sv.lSberVmeste.bPageManager.View');
 
-goog.require('sv.lSberVmeste.bNavPage3.View');
+goog.require('sv.lSberVmeste.bNavPage1.View');
 goog.require('cl.iControl.View');
 
 
@@ -23,7 +23,7 @@ goog.inherits(sv.lSberVmeste.bPageManager.View, cl.iControl.View);
 
 goog.scope(function() {
     var View = sv.lSberVmeste.bPageManager.View,
-        NavPage3View = sv.lSberVmeste.bNavPage3.View;
+        NavPage1View = sv.lSberVmeste.bNavPage1.View;
 
     /**
      * Css class enum
@@ -40,6 +40,6 @@ goog.scope(function() {
     View.prototype.decorateInternal = function(element) {
         goog.base(this, 'decorateInternal', element);
 
-        this.dom.navPage3 = this.getElementByClass(NavPage3View.CssClass.ROOT);
+        this.dom.navPage1 = this.getElementByClass(NavPage1View.CssClass.ROOT);
     };
 });  // goog.scope

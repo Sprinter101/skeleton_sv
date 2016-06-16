@@ -43,9 +43,7 @@ goog.scope(function() {
      * @enum {number}
      */
     Header.NavLinkID = {
-        'navLink1': 1,
-        'navLink2': 2,
-        'navLink3': 3
+        'navLink1': 1
     };
 
     /**
@@ -77,12 +75,6 @@ goog.scope(function() {
         switch (this.getView().getNavLinkTitle([event.value.id])) {
             case 'navLink1':
                 Router.getInstance().changeLocation(Route.NAV_LINK_1);
-                break;
-            case 'navLink2':
-                Router.getInstance().changeLocation(Route.NAV_LINK_2);
-                break;
-            case 'navLink3':
-                Router.getInstance().changeLocation(Route.NAV_LINK_3);
                 break;
             default:
                 console.log('Nav Link ' + event.value.id + ' clicked!');

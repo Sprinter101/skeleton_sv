@@ -10,7 +10,7 @@ goog.require('cl.iControl.View');
  * @constructor
  * @extends {cl.iControl.View}
 */
-sv.lSberVmeste.bNavPage1.View = function(opt_params, opt_template, opt_modifier) {
+sv.lSberVmeste.bNavPage1.View = function(opt_params, opt_template, opt_modifier) {    
     goog.base(this, opt_params, opt_template, opt_modifier);
 
     this.setCssClass(sv.lSberVmeste.bNavPage1.View.CssClass.ROOT);
@@ -26,6 +26,7 @@ goog.scope(function() {
      */
     View.CssClass = {
         ROOT: 'b-page-1',
+        AJAX_CONT: 'b-page-1__ajax-cont'
     };
 
     /**
@@ -34,5 +35,7 @@ goog.scope(function() {
      */
     View.prototype.decorateInternal = function(element) {
         goog.base(this, 'decorateInternal', element);
+
+        this.dom.ajaxCont_ = this.getElementByClass(View.CssClass.AJAX_CONT)
     };
 });  // goog.scope
